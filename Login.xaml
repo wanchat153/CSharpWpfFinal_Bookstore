@@ -1,0 +1,36 @@
+﻿<Window x:Class="CSharpWpfFinal_Bookstore.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CSharpWpfFinal_Bookstore"
+        mc:Ignorable="d"
+        Title="Bookstore Management" Height="768" Width="1024"
+        ResizeMode="NoResize">
+    <!-- NOT Resize -->
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/bookswallpaper.jpg" Stretch="Fill" TileMode="None" Opacity="0.85"/>
+        </Grid.Background>
+        <Rectangle HorizontalAlignment="Center" Height="365" VerticalAlignment="Center" Width="476" Stroke="#FF535353" RadiusX="13" RadiusY="13" StrokeThickness="3">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="#FF8A8A8A" Opacity="0.95"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBox x:Name="emailText" HorizontalAlignment="Center" Height="30" Margin="0,-20,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="240" FontSize="20" FontFamily="Sitka Display" Foreground="#FF303030" TextChanged="emailText_TextChanged" VerticalContentAlignment="Center"/>
+        <PasswordBox x:Name="passText" HorizontalAlignment="Center" Height="30" VerticalAlignment="Center" Width="240" Margin="0,120,0,0" Foreground="#FF303030" VerticalContentAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,240,0,0" TextWrapping="Wrap" Text="Log in to Bookstore" Width="476" TextAlignment="Center" FontSize="45" FontFamily="Sitka Display" UseLayoutRounding="False" Height="60" VerticalAlignment="Top" Foreground="#FF3B3B3B">
+            <TextBlock.Background>
+                <SolidColorBrush Color="#FF555555" Opacity="0.4"/>
+            </TextBlock.Background>
+        </TextBlock>
+        <Button x:Name="loginBtn" Content="Log in" HorizontalAlignment="Center" Height="42" Margin="0,240,0,0" VerticalAlignment="Center" Width="150" FontSize="20" FontFamily="Sitka Display" Foreground="#FF414141" BorderThickness="2,2,2,2" Click="loginBtn_Click">
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0.4"/>
+            </Button.Background>
+        </Button>
+        <TextBlock HorizontalAlignment="Center" Margin="-195,-77,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Center" FontSize="20" Foreground="#FF272727" FontFamily="Sitka Display"/>
+        <TextBlock HorizontalAlignment="Center" Margin="-142,63,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Center" FontSize="20" Foreground="#FF272727" Width="98" FontFamily="Sitka Display"/>
+
+    </Grid>
+</Window>

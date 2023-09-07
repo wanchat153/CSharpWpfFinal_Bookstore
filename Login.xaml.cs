@@ -17,13 +17,16 @@ using System.Windows.Shapes;
 namespace CSharpWpfFinal_Bookstore
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Login.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Login : Window
     {
-        public MainWindow()
+        public Login()
         {
-            InitializeComponent();
+
+        }
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
 
         }
 
@@ -39,17 +42,9 @@ namespace CSharpWpfFinal_Bookstore
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void passwordText_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void emailText_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-
+            Bookstore bookstore = new Bookstore();
+            bookstore.Show();
+            this.Close();
         }
     }
 }
