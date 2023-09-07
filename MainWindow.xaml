@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CSharpWpfFinal_Bookstore"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Bookstore Management" Height="768" Width="1024"
+        ResizeMode="NoResize">
+    <!-- NOT Resize -->
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/bookswallpaper.jpg" Stretch="Fill" TileMode="None" Opacity="0.85"/>
+        </Grid.Background>
+        <Rectangle HorizontalAlignment="Center" Height="365" VerticalAlignment="Center" Width="476" Stroke="#FF535353" RadiusX="13" RadiusY="13" StrokeThickness="3">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="#FF8A8A8A" Opacity="0.95"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBox x:Name="emailText" HorizontalAlignment="Center" Height="30" Margin="0,-50,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="240" FontSize="20" FontFamily="Sitka Display" Foreground="#FF303030">
+            <TextBox.Background>
+                <SolidColorBrush Color="#FFF3F3F3" Opacity="1"/>
+            </TextBox.Background>
+        </TextBox>
+        <TextBox x:Name="passwordText" HorizontalAlignment="Center" Height="30" TextWrapping="Wrap" VerticalAlignment="Center" Width="240" FontSize="20" Margin="0,40,0,0" FontFamily="Sitka Display" Foreground="#FF303030" Background="#FFF3F3F3" TextChanged="passwordText_TextChanged_1"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,-213,0,0" TextWrapping="Wrap" Text="Log in to Bookstore" Width="384" TextAlignment="Center" FontSize="45" FontFamily="Sitka Display" UseLayoutRounding="False" Height="60" VerticalAlignment="Center" Foreground="#FF3B3B3B">
+            <TextBlock.Background>
+                <SolidColorBrush Color="DimGray" Opacity="0.4"/>
+            </TextBlock.Background>
+        </TextBlock>
+        <Button x:Name="loginBtn" Content="Log in" HorizontalAlignment="Center" Height="42" Margin="0,190,0,0" VerticalAlignment="Center" Width="150" FontSize="20" FontFamily="Sitka Display" Foreground="#FF414141" BorderThickness="2,2,2,2">
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0.4"/>
+            </Button.Background>
+        </Button>
         
     </Grid>
 </Window>

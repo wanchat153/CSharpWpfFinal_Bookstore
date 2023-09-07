@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -23,6 +24,32 @@ namespace CSharpWpfFinal_Bookstore
         public MainWindow()
         {
             InitializeComponent();
+
+        }
+
+        private void emailText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void passwordText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void loginBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void passwordText_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void emailText_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
