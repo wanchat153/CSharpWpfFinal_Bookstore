@@ -11,17 +11,20 @@
         <Grid.Background>
             <ImageBrush ImageSource="/bookswallpaper.jpg" Stretch="Fill" TileMode="None" Opacity="0.85"/>
         </Grid.Background>
-        <Grid HorizontalAlignment="Center" Height="83" VerticalAlignment="Top" Width="1024" Background="#FF121212">
-            <Button x:Name="customersBtn" Content="Customers" HorizontalAlignment="Center" Height="63" VerticalAlignment="Center" Width="196" FontSize="36" FontFamily="Sitka Display Semibold" Foreground="#FFCDCDCD" Background="{x:Null}" BorderBrush="{x:Null}" Margin="-555,0,0,0"/>
-            <Button x:Name="booksBtn" Content="Books" HorizontalAlignment="Center" Height="63" Margin="-207,0,0,0" VerticalAlignment="Center" Width="133" FontSize="36" FontFamily="Sitka Display Semibold" Foreground="#FFCDCDCD" Background="{x:Null}" BorderBrush="{x:Null}"/>
-            <Button x:Name="ordersBtn" Content="Orders" HorizontalAlignment="Center" Height="63" VerticalAlignment="Center" Width="132" FontSize="36" FontFamily="Sitka Display Semibold" Foreground="#FFCDCDCD" Background="{x:Null}" BorderBrush="{x:Null}" Margin="73,0,0,0"/>
-        </Grid>
-        <Border Height="60" Margin="-887,-647,0,0" Width="60" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#FF3C3C3C" BorderThickness="2">
-            <Image Source="/admin.png">
-                <Image.OpacityMask>
-                    <ImageBrush ImageSource="/admin.png"/>
-                </Image.OpacityMask>
-            </Image>
-        </Border>
+        <StackPanel HorizontalAlignment="Center" Height="83" VerticalAlignment="Top" Width="1024" Background="#FF121212">
+            <Button x:Name="customersBtn" Content="Customers" HorizontalAlignment="Center" Height="63" VerticalAlignment="Center" Width="196" FontSize="36" FontFamily="Sitka Display Semibold" Foreground="#FFCDCDCD" Background="{x:Null}" BorderBrush="{x:Null}" Margin="-555,9,0,0" Click="customersBtn_Click"/>
+            <Button x:Name="booksBtn" Content="Books" HorizontalAlignment="Center" Height="63" Margin="-207,-63,0,0" VerticalAlignment="Center" Width="133" FontSize="36" FontFamily="Sitka Display Semibold" Foreground="#FFCDCDCD" Background="{x:Null}" BorderBrush="{x:Null}" Click="booksBtn_Click"/>
+            <Button x:Name="ordersBtn" Content="Orders" HorizontalAlignment="Center" Height="63" VerticalAlignment="Center" Width="132" FontSize="36" FontFamily="Sitka Display Semibold" Foreground="#FFCDCDCD" Background="{x:Null}" BorderBrush="{x:Null}" Margin="73,-63,0,0"/>
+
+            <!-- เพิ่ม Border ภายใน StackPanel -->
+            <Border Height="60" Width="60" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="#FF3C3C3C" BorderThickness="2" Margin="-886,-62,0,0">
+                <Image Source="/admin.png">
+                    <Image.OpacityMask>
+                        <ImageBrush ImageSource="/admin.png"/>
+                    </Image.OpacityMask>
+                </Image>
+            </Border>
+        </StackPanel>
+        <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
     </Grid>
 </Window>

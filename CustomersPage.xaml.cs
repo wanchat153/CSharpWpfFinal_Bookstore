@@ -10,33 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace CSharpWpfFinal_Bookstore
 {
     /// <summary>
-    /// Interaction logic for Bookstore.xaml
+    /// Interaction logic for CustomersPage.xaml
     /// </summary>
-    public partial class Bookstore : Window
+    public partial class CustomersPage : Page
     {
-        public Bookstore()
+        public CustomersPage()
         {
             InitializeComponent();
-        }
-
-        private void customersBtn_Click(object sender, RoutedEventArgs e)
-        {
-            mainFrame.NavigationService.Navigate(new CustomersPage());
-        }
-
-        private void booksBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ordersBtn_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
