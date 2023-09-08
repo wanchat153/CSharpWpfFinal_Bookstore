@@ -14,7 +14,7 @@
                 <TextBlock Margin="0,17,0,0" Height="41" TextWrapping="Wrap" Text="Customers Management" Width="412" FontSize="30" FontFamily="Sitka Display Semibold" TextAlignment="Center" Foreground="#FFBCBCBC"/>
             </StackPanel>
             <Grid Margin="0,76,0,0" Background="#FF969696">
-                <DataGrid HorizontalAlignment="Left" d:ItemsSource="{d:SampleData ItemCount=5}" Width="650" Background="#FF555555" OpacityMask="#FF555555" BorderBrush="#FF434343" BorderThickness="5,5,5,5"/>
+                <DataGrid x:Name="DataGridCustomers" HorizontalAlignment="Left" d:ItemsSource="{d:SampleData ItemCount=5}" Width="650" Background="#FF555555" OpacityMask="#FF555555" BorderBrush="#FF434343" BorderThickness="5,5,5,5" SelectionChanged="DataGridCustomers_SelectionChanged" RowBackground="#FFDADADA"/>
                 <Grid Margin="650,0,0,0" Background="#FF555555">
                     <Rectangle Height="159" Fill="#FF434343" VerticalAlignment="Top" Margin="0,0,0,434" Stroke="#FF434343" StrokeThickness="5"/>
                     <TextBox x:Name="searchCustomers" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" VerticalAlignment="Center" Width="254" FontSize="18" Foreground="#FF3D3D3D" BorderThickness="2,2,2,2" BorderBrush="#FF545454" Margin="36,0,0,426" Background="#FFEEEEEE" TextChanged="searchCustomers_TextChanged"/>

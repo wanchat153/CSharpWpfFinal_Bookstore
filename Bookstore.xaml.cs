@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharpWpfFinal_Bookstore.data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,9 @@ namespace CSharpWpfFinal_Bookstore
         public Bookstore()
         {
             InitializeComponent();
+            DataCustomers.InitializeDataCustomers();
+            DataBookstore.InitializeDataBookstore();
+            DataOders.InitializeDataOders();
         }
 
         private void customersBtn_Click(object sender, RoutedEventArgs e)
