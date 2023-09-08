@@ -24,5 +24,40 @@ namespace CSharpWpfFinal_Bookstore
         {
             InitializeComponent();
         }
+
+        private void searchCustomers_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void idCustomers_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void nameCustomers_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void addressCustomers_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void emailCustomers_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void addCustomers_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void deleteCustomers_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

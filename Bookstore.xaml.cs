@@ -31,7 +31,7 @@ namespace CSharpWpfFinal_Bookstore
 
         private void booksBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            mainFrame.NavigationService.Navigate(new BooksPage());
         }
 
         private void ordersBtn_Click(object sender, RoutedEventArgs e)
