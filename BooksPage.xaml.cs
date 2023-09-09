@@ -59,5 +59,15 @@ namespace CSharpWpfFinal_Bookstore
         {
 
         }
+
+        private void updateBooks_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void clearBooks_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
