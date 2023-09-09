@@ -42,5 +42,10 @@ namespace CSharpWpfFinal_Bookstore
         {
 
         }
+
+        private void mainFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+
+        }
     }
 }
