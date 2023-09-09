@@ -14,12 +14,41 @@
                 <TextBlock Margin="0,17,0,0" Height="41" TextWrapping="Wrap" Text="Books Management" Width="412" FontSize="30" FontFamily="Sitka Display Semibold" TextAlignment="Center" Foreground="#FFBCBCBC"/>
             </StackPanel>
             <Grid Margin="0,76,0,0" Background="#FF969696">
-                <DataGrid HorizontalAlignment="Left" d:ItemsSource="{d:SampleData ItemCount=5}" Width="650" Background="#FF555555" OpacityMask="#FF555555" BorderBrush="#FF434343" BorderThickness="5,5,5,5"/>
+                <DataGrid x:Name="DataGridBooks" HorizontalAlignment="Left" Width="650" Background="#FF555555" OpacityMask="#FF555555" BorderBrush="#FF434343" BorderThickness="5,5,5,5" SelectionChanged="DataGridBooks_SelectionChanged" RowBackground="#FFDADADA" HeadersVisibility="Column" AutoGenerateColumns="False" CanUserAddRows="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ISBN" Width="120" Binding="{Binding ISBN}" />
+                        <DataGridTextColumn Header="Title" Width="200" Binding="{Binding Title}" />
+                        <DataGridTextColumn Header="Description" Width="200" Binding="{Binding Description}" />
+                        <DataGridTextColumn Header="Price" Width="120" Binding="{Binding Price}" />
+                    </DataGrid.Columns>
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="FontSize" Value="14"/>
+                            <!-- กำหนดขนาดตัวหนังสือในแถว -->
+                            <Setter Property="FontWeight" Value="Normal"/>
+                            <!-- กำหนดความหนาของตัวหนังสือในแถว -->
+                        </Style>
+                    </DataGrid.RowStyle>
+                    <DataGrid.Resources>
+                        <!-- สร้าง Style สำหรับ Header ของคอลัม -->
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="ContentTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <!-- ใช้ TextBlock เพื่อแสดงชื่อในคอลัมใหญ่ขึ้น -->
+                                        <TextBlock Text="{Binding}" TextAlignment="Center" FontWeight="Bold" FontSize="15" Foreground="#FF292929"/>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+
+                        </Style>
+                    </DataGrid.Resources>
+                </DataGrid>
                 <Grid Margin="650,0,0,0" Background="#FF555555">
                     <Rectangle Height="159" Fill="#FF434343" VerticalAlignment="Top" Margin="0,0,0,434" Stroke="#FF434343" StrokeThickness="5"/>
                     <TextBox x:Name="searchBooks" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" VerticalAlignment="Center" Width="254" FontSize="18" Foreground="#FF3D3D3D" BorderThickness="2,2,2,2" BorderBrush="#FF545454" Margin="36,0,0,426" Background="#FFEEEEEE" TextChanged="searchBooks_TextChanged"/>
                     <Rectangle Stroke="#FF434343" StrokeThickness="5" Margin="0,101,0,0"/>
-                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="39,-43,0,444" TextWrapping="Wrap" Text="Search ISBN or Title" VerticalAlignment="Center" Width="180" FontSize="20" Foreground="White"/>
+                    <TextBlock HorizontalAlignment="Left" Height="30" Margin="39,-43,0,444" TextWrapping="Wrap" Text="Search ISBN Title Price" VerticalAlignment="Center" Width="248" FontSize="20" Foreground="White"/>
                     <TextBox x:Name="isbnBooks" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" FontSize="18" Foreground="#FF3D3D3D" BorderThickness="2,2,2,2" BorderBrush="#FF545454" Margin="36,149,0,0" Background="#FFD2D2D2" TextChanged="isbnBooks_TextChanged"/>
                     <TextBlock HorizontalAlignment="Left" Height="30" Margin="36,119,0,0" TextWrapping="Wrap" Text="ISBN" VerticalAlignment="Top" Width="168" FontSize="20" Foreground="White"/>
                     <TextBox x:Name="titleBooks" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" FontSize="18" Foreground="#FF3D3D3D" BorderThickness="2,2,2,2" BorderBrush="#FF545454" Margin="36,222,0,0" Background="#FFD2D2D2" TextChanged="titleBooks_TextChanged"/>

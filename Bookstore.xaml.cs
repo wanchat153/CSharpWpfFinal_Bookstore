@@ -23,6 +23,7 @@ namespace CSharpWpfFinal_Bookstore
         public Bookstore()
         {
             InitializeComponent();
+            //เรียกใช้ Sql
             DataCustomers.InitializeDataCustomers();
             DataBookstore.InitializeDataBookstore();
             DataOders.InitializeDataOders();

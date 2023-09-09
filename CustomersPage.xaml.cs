@@ -30,8 +30,6 @@ namespace CSharpWpfFinal_Bookstore
             InitializeComponent();
             //เรียกใช้ Sql
             DataCustomers.InitializeDataCustomers();
-            DataBookstore.InitializeDataBookstore();
-            DataOders.InitializeDataOders();
 
             // รีเฟรชข้อมูล
             RefreshData();
@@ -42,21 +40,21 @@ namespace CSharpWpfFinal_Bookstore
         {
             string sql = "SELECT * FROM Customers";
 
-            using (SqliteConnection conn = new SqliteConnection("Data Source=Bookstore.db"))
+            using (SqliteConnection db = new SqliteConnection("Data Source=Bookstore.db"))
             {
-                conn.Open();
+                db.Open();
 
-                using (SqliteCommand cmd = new SqliteCommand(sql, conn))
+                using (SqliteCommand cmdCustomer = new SqliteCommand(sql, db))
                 {
-                    using (SqliteDataReader reader = cmd.ExecuteReader())
+                    using (SqliteDataReader reader = cmdCustomer.ExecuteReader())
                     {
-                        DataTable dt = new DataTable();
-                        dt.Load(reader);
+                        DataTable dtCustomer = new DataTable();
+                        dtCustomer.Load(reader);
                         //แสดงข้อมูล SQL ใน DataGrid
-                        DataGridCustomers.ItemsSource = dt.DefaultView;
+                        DataGridCustomers.ItemsSource = dtCustomer.DefaultView;
                     }
                 }
-                conn.Close();
+                db.Close();
             }
         }
 
@@ -93,28 +91,28 @@ namespace CSharpWpfFinal_Bookstore
                 sql = "SELECT * FROM Customers WHERE Customer_Name LIKE @SearchText";
             }
 
-            using (SqliteConnection conn = new SqliteConnection("Data Source=Bookstore.db"))
+            using (SqliteConnection db = new SqliteConnection("Data Source=Bookstore.db"))
             {
-                conn.Open();
+                db.Open();
 
-                using (SqliteCommand cmd = new SqliteCommand(sql, conn))
+                using (SqliteCommand cmdCustomer = new SqliteCommand(sql, db))
                 {
                     // _ คือ ไม่ต้องใช้ parameter สำหรับ customerId
                     if (!int.TryParse(searchText, out int _))
                     {
                         //ค้นหาข้อมูล ตรวจสอบคำที่มีใน ข้อมูล SQL
-                        cmd.Parameters.AddWithValue("@SearchText", $"%{searchText}%");
+                        cmdCustomer.Parameters.AddWithValue("@SearchText", $"%{searchText}%");
                     }
 
-                    using (SqliteDataReader reader = cmd.ExecuteReader())
+                    using (SqliteDataReader reader = cmdCustomer.ExecuteReader())
                     {
-                        DataTable dt = new DataTable();
-                        dt.Load(reader);
+                        DataTable dtCustomer = new DataTable();
+                        dtCustomer.Load(reader);
                         //แสดงข้อมูล SQL ใน DataGrid
-                        DataGridCustomers.ItemsSource = dt.DefaultView;
+                        DataGridCustomers.ItemsSource = dtCustomer.DefaultView;
                     }
                 }
-                conn.Close();
+                db.Close();
             }
         }
 
@@ -182,14 +180,14 @@ namespace CSharpWpfFinal_Bookstore
                 db.Open();
                 //ตรวจสอบ ID และ Name ไม่ซ้ำกัน
                 string sql = "SELECT COUNT(*) FROM Customers WHERE Customer_id = @Customer_id OR Customer_Name = @Customer_Name";
-                using (SqliteCommand cmd = new SqliteCommand(sql, db))
+                using (SqliteCommand cmdCustomer = new SqliteCommand(sql, db))
                 {
                     //ค่าของ ID และ Name ตรวจสอบในข้อมูล Sql ID และ Name
-                    cmd.Parameters.AddWithValue("@Customer_id", IdCustomers);
-                    cmd.Parameters.AddWithValue("@Customer_Name", NameCustomers);
+                    cmdCustomer.Parameters.AddWithValue("@Customer_id", IdCustomers);
+                    cmdCustomer.Parameters.AddWithValue("@Customer_Name", NameCustomers);
                     
                     //ถ้าข้อมูลชำกันจะนับ
-                    long count = (long)cmd.ExecuteScalar();
+                    long count = (long)cmdCustomer.ExecuteScalar();
 
                     //ส่งข้อมูลกลับ
                     return count > 0;
@@ -225,10 +223,10 @@ namespace CSharpWpfFinal_Bookstore
             {
                 db.Open();
 
-                using (SqliteCommand cmd = new SqliteCommand(deleteSql, db))
+                using (SqliteCommand cmdCustomer = new SqliteCommand(deleteSql, db))
                 {
-                    cmd.Parameters.AddWithValue("@CustomerId", customerId);
-                    cmd.ExecuteNonQuery();
+                    cmdCustomer.Parameters.AddWithValue("@CustomerId", customerId);
+                    cmdCustomer.ExecuteNonQuery();
                 }
 
                 db.Close();
@@ -247,6 +245,7 @@ namespace CSharpWpfFinal_Bookstore
                 if (DataGridCustomers.SelectedItem is DataRowView selectedRow)
                 {
                     idCustomers.IsReadOnly = true;
+                    nameCustomers.IsReadOnly = true;
                     // ตรวจสอบข้อมูลแถวที่เลือก
                     int customerId = int.Parse(selectedRow["Customer_id"].ToString());
                     string customerName = (string)selectedRow["Customer_Name"];
@@ -315,6 +314,7 @@ namespace CSharpWpfFinal_Bookstore
 
             //ทำให้สามารถแก้ไข Textbox ได้
             idCustomers.IsReadOnly = false;
+            nameCustomers.IsReadOnly = false;
         }
 
         private void clearCustomers_Click(object sender, RoutedEventArgs e)
