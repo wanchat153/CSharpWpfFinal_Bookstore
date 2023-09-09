@@ -116,8 +116,15 @@
       <DependentUpon>Login.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="OrderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OrderPage.xaml.cs">
+      <DependentUpon>OrderPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
