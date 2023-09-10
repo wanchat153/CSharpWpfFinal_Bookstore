@@ -113,7 +113,6 @@
     </Compile>
     <Compile Include="data\DataBookstore.cs" />
     <Compile Include="data\DataCustomers.cs" />
-    <Compile Include="data\DataOders.cs" />
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
       <SubType>Code</SubType>
