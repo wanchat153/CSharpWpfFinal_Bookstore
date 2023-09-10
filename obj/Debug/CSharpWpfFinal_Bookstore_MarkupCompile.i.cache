@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\GITCSharp\CSharpWpfFinal_Bookstore\CSharpWpfFinal_Bookstore\App.xaml
-1219584333
+5-459856791
 
-6-793535042
-13-38814620
-MainWindow.xaml;
+1599506664
+126908923813
+BooksPage.xaml;Menus.xaml;CustomersPage.xaml;Login.xaml;OrderPage.xaml;
 
-True
+False
 
