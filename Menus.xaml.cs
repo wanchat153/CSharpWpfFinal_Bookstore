@@ -18,9 +18,9 @@ namespace CSharpWpfFinal_Bookstore
     /// <summary>
     /// Interaction logic for Bookstore.xaml
     /// </summary>
-    public partial class Bookstore : Window
+    public partial class Menus : Window
     {
-        public Bookstore()
+        public Menus()
         {
             InitializeComponent();
             //เรียกใช้ Sql

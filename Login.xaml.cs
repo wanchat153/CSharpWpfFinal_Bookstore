@@ -42,9 +42,23 @@ namespace CSharpWpfFinal_Bookstore
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
-            Bookstore bookstore = new Bookstore();
-            bookstore.Show();
-            this.Close();
+            //ไม่ต้องเช็ครหัสผ่าน สามารถเข้าได้เลย
+            ////Menus menus = new Menus();
+            ////menus.Show();
+            ////this.Close();
+
+            if (emailText.Text == "test@gmail.com" && passText.Password == "test123")
+            {
+                Menus menus = new Menus();
+                menus.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Your email was incorrect", "Your password was incorrect", MessageBoxButton.OK, MessageBoxImage.Warning);
+                emailText.Text = "";
+                passText.Password = "";
+            }
         }
     }
 }

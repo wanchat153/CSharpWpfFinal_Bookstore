@@ -11,9 +11,89 @@
     <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <Grid Margin="20,100,20,20" Background="#FF434343">
             <StackPanel>
-                <TextBlock Margin="0,17,0,0" Height="41" TextWrapping="Wrap" Text="Order Management" Width="412" FontSize="30" FontFamily="Sitka Display Semibold" TextAlignment="Center" Foreground="#FFBCBCBC"/>
+                <TextBlock Margin="0,17,0,0" Height="41" TextWrapping="Wrap" Text="Order Management" Width="412" FontSize="30" FontFamily="Sitka Display Semibold" TextAlignment="Center" Foreground="White"/>
             </StackPanel>
-            <Grid Margin="0,76,0,0" Background="#FF555555"/>
+            <StackPanel Margin="0,76,0,0" Orientation="Vertical">
+                <Grid x:Name="GridOrder" Background="#FF555555" Height="572" Width="984">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="42"/>
+                        <RowDefinition Height="42"/>
+                        <RowDefinition Height="42"/>
+                        <RowDefinition Height="42"/>
+                        <RowDefinition Height="52"/>
+                        <RowDefinition Height="130"/>
+                        <RowDefinition Height="52"/>
+                        <RowDefinition Height="130"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" MinWidth="200"/>
+                        <ColumnDefinition Width="255*" MinWidth="250"/>
+                        <ColumnDefinition Width="227*" MinWidth="200"/>
+                        <ColumnDefinition Width="378*" MinWidth="250"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- ISBN ComboBox -->
+                    <ListView Grid.Row="5" Grid.ColumnSpan="4" x:Name="OrderListView" Height="110" Width="865">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="ISBN" Width="100" DisplayMemberBinding="{Binding ISBN}" />
+                                <GridViewColumn Header="Title" Width="200" DisplayMemberBinding="{Binding Title}" />
+                                <GridViewColumn Header="Quantity" Width="100" DisplayMemberBinding="{Binding Quantity}" />
+                                <GridViewColumn Header="Price" Width="100" DisplayMemberBinding="{Binding Price}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <!-- ISBN ComboBox -->
+                    <TextBlock Grid.Column="0" Margin="72,0,42,0" VerticalAlignment="Center" Text="ISBN:" Height="22" FontSize="16" FontWeight="Bold" Foreground="White" />
+                    <ComboBox x:Name="ISBNComboBox" Grid.Column="1" Margin="20,0,10,0" VerticalAlignment="Center" SelectionChanged="ISBNComboBox_SelectionChanged" Height="22" Width="180">
+                        <!-- ComboBox items will be loaded from the database -->
+                    </ComboBox>
+
+                    <!-- Customer_id ComboBox -->
+                    <TextBlock Grid.Column="2" Margin="44,0,19,0" VerticalAlignment="Center" Text="Customer ID:" Height="20" FontSize="16" Foreground="White" FontWeight="Bold" />
+                    <ComboBox x:Name="CustomerIDComboBox" Grid.Column="3" Margin="20,0,10,0" VerticalAlignment="Center" SelectionChanged="CustomerIDComboBox_SelectionChanged" Height="22" Width="180">
+                        <!-- ComboBox items will be loaded from the database -->
+                    </ComboBox>
+
+                    <!-- Book Information Display -->
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="72,0,42,0" VerticalAlignment="Center" Text="Title:" Height="22" FontSize="16" Foreground="White" FontWeight="Bold" />
+                    <TextBlock x:Name="TitleTextBlock" Grid.Row="1" Grid.Column="1" Margin="20,0,10,0" VerticalAlignment="Center" Height="23" FontSize="16" FontWeight="Bold" Foreground="White" Width="180" />
+
+                    <TextBlock Grid.Row="1" Grid.Column="2" Margin="44,0,19,0" VerticalAlignment="Center" Text="Description:" Height="20" FontSize="16" Foreground="White" FontWeight="Bold" />
+                    <TextBlock x:Name="DescriptionTextBlock" Grid.Row="1" Grid.Column="3" Margin="20,0,10,0" VerticalAlignment="Center" Height="23" FontSize="16" FontWeight="Bold" Foreground="White" Width="180" />
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="72,0,42,0" VerticalAlignment="Center" Text="Price:" Height="22" FontSize="16" FontWeight="Bold" Foreground="White" />
+                    <TextBlock x:Name="PriceTextBlock" Grid.Row="2" Grid.Column="1" Margin="20,0,10,0" VerticalAlignment="Center" Height="23" FontSize="16" Foreground="White" FontWeight="Bold" Width="180" />
+
+                    <!-- Customer Name Display -->
+                    <TextBlock Grid.Row="2" Grid.Column="2" Margin="44,0,19,0" VerticalAlignment="Center" Text="Customer Name:" Height="20" FontSize="16" FontWeight="Bold" Foreground="White" />
+                    <TextBlock x:Name="CustomerNameTextBlock" Grid.Row="2" Grid.Column="3" Margin="20,0,10,0" VerticalAlignment="Center" Height="23" FontSize="16" FontWeight="Bold" Foreground="White" Width="180" />
+
+                    <!-- Quantity Input -->
+                    <TextBlock Grid.Row="3" Grid.Column="0" Margin="72,0,42,0" VerticalAlignment="Center" Text="Quantity:" Height="22" FontSize="16" Foreground="White" FontWeight="Bold" />
+                    <TextBox x:Name="QuantityTextBox" Grid.Row="3" Grid.Column="1" Margin="20,0,10,0" VerticalAlignment="Center" TextChanged="QuantityTextBox_TextChanged" Height="18" Width="180" />
+
+                    <!-- Total Price Display -->
+                    <TextBlock Grid.Row="3" Grid.Column="2" Margin="44,0,19,0" VerticalAlignment="Center" Text="Total Price:" Height="22" FontSize="16" Foreground="White" FontWeight="Bold" />
+                    <TextBlock x:Name="TotalPriceTextBlock" Grid.Row="3" Grid.Column="3" Margin="20,0,10,0" VerticalAlignment="Center" Height="23" FontSize="16" Foreground="White" FontWeight="Bold" Width="180" />
+
+                    <Button Grid.Row="4" Grid.Column="1" Content="Add" Click="AddButton_Click" Height="31" Width="110" FontWeight="Bold" FontSize="16" Foreground="#FFE4E4E4" Background="#FF404040" BorderBrush="#FF343434" BorderThickness="2,2,2,2" Margin="66,6,74,5" />
+                    <Button Grid.Row="4" Grid.Column="2" Content="Clear" Height="30" Click="ClearButton_Click" Width="110" FontSize="16" FontWeight="Bold" Foreground="White" Background="#FF404040" BorderThickness="2,2,2,2" BorderBrush="#FF343434" Margin="50,6,40,6" />
+
+                    <Button Grid.Row="6" Grid.Column="1" Content="Calculate" Click="CalculateSummaryButton_Click" Height="30" Width="110" BorderBrush="#FF343434" BorderThickness="2,2,2,2" FontSize="16" FontWeight="Bold" Background="#FF404040" Foreground="#FFE4E4E4" Margin="6,9,134,13"/>
+                    <Button Grid.Row="6" Grid.Column="3" Content="Clear Order" Click="ClearOrderButton_Click" Height="30" Width="110" BorderThickness="2,2,2,2" FontSize="16" FontWeight="Bold" Foreground="#FFE4E4E4" Background="#FF404040" BorderBrush="#FF2D2D2D" Margin="20,9,204,13"/>
+                    <Button Grid.Row="6" Grid.Column="1" Content="Submit" Height="30" Click="SubmitButton_Click" Width="110" BorderThickness="2,2,2,2" FontSize="16" FontWeight="Bold" Foreground="#FFE4E4E4" Background="#FF404040" BorderBrush="#FF353535" Margin="237,9,103,13" Grid.ColumnSpan="2"/>
+                    <ListView x:Name="ListViewSum" Grid.Row="7" Grid.ColumnSpan="4" Height="110" Width="865" Margin="60,5,59,15">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Title" Width="200" DisplayMemberBinding="{Binding Title}" />
+                                <GridViewColumn Header="Quantity" Width="100" DisplayMemberBinding="{Binding Quantity}" />
+                                <GridViewColumn Header="Total Price" Width="150" DisplayMemberBinding="{Binding TotalPrice}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>

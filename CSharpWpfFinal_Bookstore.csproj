@@ -84,7 +84,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Bookstore.xaml">
+    <Page Include="Menus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -103,8 +103,10 @@
     <Compile Include="BooksPage.xaml.cs">
       <DependentUpon>BooksPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Bookstore.xaml.cs">
-      <DependentUpon>Bookstore.xaml</DependentUpon>
+    <Compile Include="Encapsulation\Book.cs" />
+    <Compile Include="Encapsulation\OrderItem.cs" />
+    <Compile Include="Menus.xaml.cs">
+      <DependentUpon>Menus.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomersPage.xaml.cs">
       <DependentUpon>CustomersPage.xaml</DependentUpon>
