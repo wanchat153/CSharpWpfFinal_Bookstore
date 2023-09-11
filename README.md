@@ -15,5 +15,6 @@
 
 <img width="758" alt="image" src="https://github.com/wanchat153/CSharpWpfFinal_Bookstore/assets/16820356/cef507db-bc54-42a8-90a1-d5ed85e9982d">
 
+<p><br><br>Email: test@gmail.com<br>Password: test123</p>
 
 <h2>C# WPF.NET SQLite</h2>
